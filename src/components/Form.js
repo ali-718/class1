@@ -9,14 +9,21 @@ export default class Form extends Component {
 
     componentDidMount(){
         
-        axios("http://dummy.restapiexample.com/api/v1/employees",{
-            method:"GET"
+        axios("https://test123-7f9a.restdb.io/rest/test?apikey=5d2a1a7ee25f837b3b80a409",{
+            method:"GET",
         }).then((result) => {
-            // this.state.data.push(result.data);
-            this.setState({
-                data:result.data
-            })
+            this.state.data.push(result);
+            // this.setState({
+            //     data:result.data
+            // })
         })
+
+        axios("https://test123-7f9a.restdb.io/rest/test?apikey=5d2a1a7ee25f837b3b80a409",{
+            method:"POST",
+            body:{
+                "Name":"Makers"
+            }
+        }).then(res => console.log(res))
     }
 
     state = {
